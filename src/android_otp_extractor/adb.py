@@ -133,12 +133,12 @@ def guess_adb_interface(data_root):
 
         try:
             LOGGER.info('Checking if adb already runs as root')
-            if '0' == test.adb_uid() and '0' == test.adb_gid():
+            if test.adb_uid() == '0' == test.adb_gid():
                 test.set_require_su(False)
             else:
                 LOGGER.info('Attempting to enable adb root')
                 test.enable_root()
-                if '0' == test.adb_uid() and '0' == test.adb_gid():
+                if test.adb_uid() == '0' == test.adb_gid():
                     test.set_require_su(False)
 
             LOGGER.info('Listing contents of / as root')

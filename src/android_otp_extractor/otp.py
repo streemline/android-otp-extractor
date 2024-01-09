@@ -65,7 +65,7 @@ class OTPAccount:
         else:
             name = self.name or 'Unknown'
 
-        return f'otpauth://{self.type}/{quote(name)}?' + urlencode(sorted(params.items()))
+        return f'otpauth://{self.type}/{quote(name)}?{urlencode(sorted(params.items()))}'
 
     def generate(self):
         raise NotImplementedError()
