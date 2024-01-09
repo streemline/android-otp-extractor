@@ -27,7 +27,7 @@ def escape_sql_string(text):
     SQLite cannot handle parameterized PRAGMA queries so manual string escaping must be used.
     """
 
-    return "'" + text.translate(SQL_BACKSLASHED_CHARS) + "'"
+    return f"'{text.translate(SQL_BACKSLASHED_CHARS)}'"
 
 
 @contextlib.contextmanager
